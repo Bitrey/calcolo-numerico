@@ -5,27 +5,6 @@ Autore: Alessandro Amella
 Matricola: 0001070569
 """
 
-"""
-Il problema di deblur consiste nella ricostruzione di un immagine a partire da un dato acquisito mediante il
-seguente modello:
-y = Ax + η (1)
-dove :
- y rappresenta l’immagine corrotta,
- x rappresenta l’immagine originale che vogliamo ricostruire
- A rappresenta l’operatore che applica il blur Gaussiano
- η ∼ N (0, σ2
-) rappresenta una realizzazione di rumore additivo con distribuzione Gaussiana di media
-µ = 0 e deviazione standard σ
-Exercise 1.1. Problema test
- Caricare l’immagine camera dal modulo skimage.data rinormalizzandola nel range [0, 1].
- Applicare un blur di tipo gaussiano con deviazione standard 3 il cui kernel ha dimensioni 24 × 24.
-utilizzando la funzione. Utilizzare prima cv2 (open-cv) e poi la trasformata di Fourier.
- Aggiungere rumore di tipo gaussiano, con σ = 0.02, usando la funzione np.random.normal().
- Calcolare le metriche Peak Signal Noise Ratio (PSNR) e Mean Squared Error (MSE) tra l’immagine
-degradata e l’immagine esatta usando le funzioni peak signal noise ratio e mean squared error
-disponibili nel modulo skimage.metrics.
-"""
-
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
