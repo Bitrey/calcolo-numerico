@@ -29,20 +29,20 @@ print('b: \n', b , '\n')
 print('b.shape: ', b.shape, '\n' )
 print('A: \n', A, '\n')
 print('A.shape: ', A.shape, '\n' )
-print('K(A)=', condA, '\n')
+print('K(A)=', condA, '\n') # 476607.2502425855
 
 # decomposizione di Choleski
 L = scipy.linalg.cholesky(A, lower=True)
 print('L:', L, '\n')
 
-print('L.T*L =', scipy.linalg.norm(A-np.matmul(np.transpose(L),L)))
-print('err = ', scipy.linalg.norm(A-np.matmul(np.transpose(L),L), 'fro'))
+print('L.T*L =', scipy.linalg.norm(A-np.matmul(np.transpose(L),L))) # 0.9734839217207908
+print('err = ', scipy.linalg.norm(A-np.matmul(np.transpose(L),L), 'fro')) # 0.9734839217207908
 
 y = scipy.linalg.solve_triangular(L, b, lower=True)
 my_x = scipy.linalg.solve_triangular(L.T, y, lower=False)
 print('my_x = \n ', my_x)
 
-print('norm =', np.linalg.norm(x-my_x, 'fro'))
+print('norm =', np.linalg.norm(x-my_x, 'fro')) # 2.6732599660997558e-12
 
 
 K_A = np.zeros((6,1))

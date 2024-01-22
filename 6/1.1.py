@@ -45,7 +45,7 @@ def minimize(f,grad_f,x0,step,maxit,tol,xTrue,fixed=True): # funzione che implem
   error_list[k]=np.linalg.norm(x_last-xTrue)
   norm_grad_list[k]=np.linalg.norm(grad_f(x_last))
 
-  while (np.linalg.norm(grad_f(x_last))>tol and k < maxit ):
+  while (np.linalg.norm(grad_f(x_last))>tol and k < maxit):
     k=k+1
     grad = grad_f(x_last)#direction is given by gradient of the last iteration
     
@@ -110,7 +110,7 @@ fig = plt.figure(figsize=(8, 5))
 contours = plt.contour(X, Y, Z, levels=1000)
 plt.title('Contour plot $f(x)=(x-1)^2 + (y-2)^2$')
 fig.colorbar(contours)
-
+plt.show()
 
 step = 0.002
 maxitS=1000
@@ -122,7 +122,6 @@ plt.plot(function_eval_listf,'*-')
 (x_last,norm_grad_list, function_eval_list, error_list, xlist, k)= minimize(f,grad_f,x0,step,maxitS,tol,xTrue,fixed=False)
 plt.plot(function_eval_list,'*-')
 plt.legend(['fixed', 'backtracking'])
-
 plt.show()
 
 fig, (ax1, ax2, ax3) = plt.subplots(1, 3)
@@ -172,7 +171,7 @@ fig = plt.figure(figsize=(8, 5))
 contours = plt.contour(X, Y, Z, levels=1000)
 plt.title('Contour plot $f(x)=(1-x)^2+100*(y-x^2)^2$')
 fig.colorbar(contours)
-
+plt.show()
 
 step = 0.001
 maxitS=1000

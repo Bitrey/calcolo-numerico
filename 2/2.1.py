@@ -16,18 +16,16 @@ b = A @ x
 
 condA = np.linalg.cond(A, 2)
 
-print('x: \n', x , '\n')
-print('x.shape: ', x.shape, '\n' )
-print('b: \n', b , '\n')
-print('b.shape: ', b.shape, '\n' )
-print('A: \n', A, '\n')
-print('A.shape: ', A.shape, '\n' )
-print('K(A)=', condA, '\n')
+print('x: \n', x , '\n') # [[1.], [1.], [1.], [1.]]
+print('x.shape: ', x.shape, '\n' ) # (4, 1)
+print('b: \n', b , '\n') # [[1.], [6.], [-5.], [4.]]
+print('b.shape: ', b.shape, '\n' ) # (4, 1)
+print('A: \n', A, '\n') # ...
+print('A.shape: ', A.shape, '\n' ) # (4, 4)
+print('K(A)=', condA, '\n') # 14.208370392921381
 
 import scipy
-# help (scipy)
 import scipy.linalg
-# help (scipy.linalg)
 from scipy.linalg import lu_factor as LUdec # pivoting
 from scipy.linalg import lu as LUfull # partial pivoting
 

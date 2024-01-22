@@ -11,12 +11,14 @@ import scipy.linalg
 from scipy.linalg import lu_factor as LUdec 
 
 # Exercise 2
-case = 2
+case = 1
 m = 10
 m_plot = 100
 
 # Grado polinomio approssimante
-n = 5
+# n in {1,2,3,5,7}
+# for n in [1,2,3,5,7]:
+n = 7
 
 if case==0:
     x = np.linspace(-1,1,m)
@@ -36,6 +38,7 @@ for i in range(n+1):
   
 U, s, Vh = scipy.linalg.svd(A)
 
+print('U', U, '\ns', s, '\nVh', Vh)
 
 alpha_svd = np.zeros(n+1)
 
@@ -45,7 +48,7 @@ for i in range(n+1):
 
   alpha_svd = alpha_svd + (ui.T@y/s[i])*vi
 
-print(alpha_svd)
+print('alpha_svd', alpha_svd) # [ 0.99315181  1.18619381 -0.77082962 -0.07787167  0.06176099 -0.00551072]
 
 
 x_plot = np.linspace(x[0], x[-1], m_plot)
@@ -66,4 +69,4 @@ plt.show()
 
 
 res = np.linalg.norm(y - A@alpha_svd)
-print('Residual: ', res)
+print(f'Residual n={n}: ', res) 

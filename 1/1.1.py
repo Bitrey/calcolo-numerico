@@ -5,6 +5,8 @@ Autore: Alessandro Amella
 Matricola: 0001070569
 """
 
+import math
+
 def machine_epsilon(func=float):
     eps = func(1)
     while func(1) + func(eps) != func(1):
@@ -13,6 +15,11 @@ def machine_epsilon(func=float):
     return eps_last
 
 print(machine_epsilon(float)) # 2.220446049250313e-16
+
+def mantissa_digits(eps):
+    return -math.log10(eps)
+
+print(mantissa_digits(machine_epsilon(float))) # 15.653559774527022
 
 import numpy as np
 print(machine_epsilon(np.float16)) # 0.000977
